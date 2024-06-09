@@ -8,4 +8,38 @@ Lastly, the burn function should have conditionals to make sure the balance of a
 
 EXECUTION
 To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
-The details of coins is stored
+
+1-)The details of coins is stored by following block of code:-
+
+string public Name = "Akshat";
+string public Abbrv = "AK";
+uint public Supply = 0;
+
+2-)Mapping of addresses to balances is done by:-
+
+mapping(address => uint)public balance;
+
+3-)Mint function:-
+
+function mint(address add,uint value)public {
+        Supply += value;
+        balance[add] += value;
+    }
+
+4-)Condition for burn function:-
+
+ if(balance[add]>=value)
+
+ 5-)Burn Function:-
+
+ function burn(address add,uint value)public {
+      if(balance[add]>=value){
+        Supply -= value;
+        balance[add] -= value;
+      }
+
+To compile the code we need to click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to "0.8.18" and then click on the "Compile MyToken.sol" button.
+
+Once the code is compiled, we can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the "MyToken" contract from the dropdown menu, and then click on the "Deploy" button.
+
+Once the contract is deployed we can run mint and burn functions by clicking on MyToken contract and then clicking on "mint" function and passisng the reqiured values like address and value we can run "burn" function in the same way. In order to check value of "Name","Abbrv" and "Supply" we can click on them under "MyToken"
